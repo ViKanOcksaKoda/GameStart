@@ -21,9 +21,4 @@
     <PackageReference Include="Microsoft.VisualStudio.LiveShare" Version="1.1.57" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Specifications\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

@@ -10,11 +10,11 @@ namespace GameStart.Core.Entities.ShoppingCartAggregate
 {
     public class ShoppingCart : BaseEntity, IAggregateRoot
     {
-        public int UserId { get; private set; }
+        public string UserId { get; private set; }
         private readonly List<ShoppingCartItem> _items = new List<ShoppingCartItem>();
         public IReadOnlyCollection<ShoppingCartItem> Items  => _items.AsReadOnly();
 
-        public ShoppingCart(int userId)
+        public ShoppingCart(string userId)
         {
             UserId = userId;
         }
