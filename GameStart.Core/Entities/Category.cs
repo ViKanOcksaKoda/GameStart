@@ -14,6 +14,7 @@ namespace GameStart.Core.Entities
         
         public List<Product> Products { get; set; }
 
+
         public Category(string categoryName, string categoryDescription)
         {
             CategoryName = categoryName;

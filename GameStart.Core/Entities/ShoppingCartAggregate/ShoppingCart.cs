@@ -10,7 +10,7 @@ namespace GameStart.Core.Entities.ShoppingCartAggregate
 {
     public class ShoppingCart : BaseEntity, IAggregateRoot
     {
-        public int UserId { get; set; }
+        public int UserId { get; private set; }
         private readonly List<ShoppingCartItem> _items = new List<ShoppingCartItem>();
         public IReadOnlyCollection<ShoppingCartItem> Items  => _items.AsReadOnly();
 
@@ -21,9 +21,9 @@ namespace GameStart.Core.Entities.ShoppingCartAggregate
 
         public void AddItem(int productId, decimal unitPrice, int quantity = 1)
         {
-            if (!Items.Any(i => i.ProductId == productId));
+            if (!Items.Any(i => i.ProductId == productId))
             {
-                _items.Add(new ShoppingCartItem(productId, quantity, unitPrice));
+                _items.Add(new ShoppingCartItem(productId, unitPrice, quantity));
                 return;
             }
             var existingItem = Items.First(i => i.ProductId == productId);

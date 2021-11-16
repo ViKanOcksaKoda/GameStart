@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameStart.Core.Entities.OrderAggregate
 {
-    internal class OrderItem : BaseEntity
+    public class OrderItem : BaseEntity
     {
         public decimal UnitPrice { get; private set; }
         public int Units { get; private set; }
