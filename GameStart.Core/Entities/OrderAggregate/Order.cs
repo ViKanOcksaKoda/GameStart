@@ -10,6 +10,6 @@ namespace GameStart.Core.Entities
     {
         public int UserId { get; set; }
         public DateTimeOffset date { get; set; }
-        public string Adress { get; set; }
+        public string Address { get; set; }
     }
 }
