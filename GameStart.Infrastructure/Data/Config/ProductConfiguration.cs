@@ -29,7 +29,7 @@ namespace GameStart.Infrastructure.Data.Config
 
             builder.HasOne(p => p.Category)
                 .WithMany()
-                .HasForeignKey(p => p.Category);
+                .HasForeignKey(p => p.CategoryId);
 
             
         }
