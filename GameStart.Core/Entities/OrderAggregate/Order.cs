@@ -10,8 +10,8 @@ namespace GameStart.Core.Entities
 {
     public class Order : BaseEntity, IAggregateRoot
     {
-        public int UserId { get; private set; }
-        public DateTimeOffset date { get; private set; }
+        public string UserId { get; private set; }
+        public DateTimeOffset date { get; private set; } = DateTimeOffset.Now;
         public string Address { get; private set; }
 
         private readonly List<OrderItem> _orderItems = new List<OrderItem>();
@@ -22,7 +22,7 @@ namespace GameStart.Core.Entities
 
         }
 
-        public Order(int userId, string address, List<OrderItem> items)
+        public Order(string userId, string address, List<OrderItem> items)
         {
             UserId = userId;
             Address = address;

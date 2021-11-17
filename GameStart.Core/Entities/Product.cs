@@ -9,20 +9,22 @@ namespace GameStart.Core.Entities
 {
     public class Product : BaseEntity, IAggregateRoot
     {
-        public int CategoryId { get; private set; }
-        public string ProductName { get; private set; }
+        
+        public string Name { get; private set; }
         public string Description { get; private set; }
         public decimal Price { get; private set; }
         public int StockBalance { get; private set; }
+        public int CategoryId { get; private set; }
+        public Category Category { get; private set; }
 
         public Product(int categoryId,
-            string productName,
+            string name,
             string description,
             decimal price,
             int stockBalance)
         {
             CategoryId = categoryId;
-            ProductName = productName;
+            Name = name;
             Description = description;
             Price = price;
             StockBalance = stockBalance;
