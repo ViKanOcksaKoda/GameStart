@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameStart.Infrastructure.Data.Config
 {
-    internal class FirstConfig
+    internal class OrderItemConfiguration
     {
     }
 }
