@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameStart.Infrastructure.Migrations
 {
     [DbContext(typeof(GameStartContext))]
-    [Migration("20211118104446_IdValueGenerationOnTables")]
-    partial class IdValueGenerationOnTables
+    [Migration("20211118152225_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
