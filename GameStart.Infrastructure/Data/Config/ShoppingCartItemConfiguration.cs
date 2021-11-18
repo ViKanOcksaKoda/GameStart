@@ -13,6 +13,9 @@ namespace GameStart.Infrastructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<ShoppingCartItem> builder)
         {
+            builder.Property(sci => sci.Id)
+                .ValueGeneratedOnAdd();
+
             builder.Property(sci => sci.UnitPrice)
                 .IsRequired(true)
                 .HasColumnType("decimal(18,2)");
