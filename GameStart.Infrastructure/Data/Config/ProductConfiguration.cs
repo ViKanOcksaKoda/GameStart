@@ -13,8 +13,6 @@ namespace GameStart.Infrastructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder.ToTable("GameStart");
-
             builder.Property(p => p.Id)
                 .UseHiLo("game_start_hilo")
                 .IsRequired();
@@ -29,9 +27,7 @@ namespace GameStart.Infrastructure.Data.Config
 
             builder.HasOne(p => p.Category)
                 .WithMany()
-                .HasForeignKey(p => p.Category);
-
-            
+                .HasForeignKey(p => p.CategoryId);
         }
     }
 }
