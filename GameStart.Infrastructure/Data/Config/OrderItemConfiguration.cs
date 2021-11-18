@@ -13,6 +13,9 @@ namespace GameStart.Infrastructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<OrderItem> builder)
         {
+            builder.Property(oi => oi.Id)
+                .ValueGeneratedOnAdd();
+
             builder.Property(oi => oi.UnitPrice)
                 .IsRequired(true)
                 .HasColumnType("decimal(18,2)");

@@ -14,8 +14,7 @@ namespace GameStart.Infrastructure.Data.Config
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.Property(p => p.Id)
-                .UseHiLo("game_start_hilo")
-                .IsRequired();
+                .ValueGeneratedOnAdd();
 
             builder.Property(p => p.Name)
                 .IsRequired(true)

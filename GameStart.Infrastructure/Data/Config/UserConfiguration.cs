@@ -9,16 +9,12 @@ using System.Threading.Tasks;
 
 namespace GameStart.Infrastructure.Data.Config
 {
-    public class CategoryConfiguration : IEntityTypeConfiguration<Category>
+    public class UserConfiguration : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<Category> builder)
+        public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.Property(c => c.Id)
+            builder.Property(u => u.Id)
                 .ValueGeneratedOnAdd();
-
-            builder.Property(cb => cb.CategoryName)
-                .IsRequired()
-                .HasMaxLength(100);
         }
     }
 }

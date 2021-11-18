@@ -17,6 +17,9 @@ namespace GameStart.Infrastructure.Data.Config
 
             navigation.SetPropertyAccessMode(PropertyAccessMode.Field);
 
+            builder.Property(o => o.Id)
+                .ValueGeneratedOnAdd();
+
             builder.Property(o => o.UserId)
                 .IsRequired()
                 .HasMaxLength(256);
