@@ -10,9 +10,9 @@ namespace GameStart.Core.Specifications
 {
     public class ProductNameSpecification : Specification<Product>
     {
-        public ProductNameSpecification(string catalogItemName)
+        public ProductNameSpecification(string productName)
         {
-            Query.Where(item => catalogItemName == item.Name);
+            Query.Where(item => productName == item.Name);
         }
     }
 }
