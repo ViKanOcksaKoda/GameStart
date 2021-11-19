@@ -3,7 +3,6 @@ using GameStart;
 using GameStart.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using AutoMapper;
 using GameStart.Core.Interfaces;
 using GameStart.Infrastructure.Logging;
 
@@ -24,6 +23,10 @@ builder.Services.AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
 builder.Services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
 builder.Services.AddMemoryCache();
 builder.Services.AddControllers();
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
