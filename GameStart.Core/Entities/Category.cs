@@ -9,13 +9,13 @@ namespace GameStart.Core.Entities
 {
     public class Category : BaseEntity, IAggregateRoot
     {
-        public string CategoryName { get; private set; }
-        public string CategoryDescription { get; private set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
 
-        public Category(string categoryName, string categoryDescription)
+        public Category(string name, string description)
         {
-            CategoryName = categoryName;
-            CategoryDescription = categoryDescription;
+            Name = name;
+            Description = description;
         }
     }
 }

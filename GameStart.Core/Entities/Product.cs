@@ -29,5 +29,18 @@ namespace GameStart.Core.Entities
             Price = price;
             StockBalance = stockBalance;
         }
+
+        public void UpdateDetails(string name, string description, decimal price, int stockBalance)
+        {
+            Name = name;
+            Description = description;
+            Price = price;
+            StockBalance=stockBalance;
+        }
+
+        public void UpdateCategory(int categoryId)
+        {
+            CategoryId = categoryId;
+        }
     }
 }

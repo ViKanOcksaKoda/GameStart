@@ -16,7 +16,7 @@ namespace GameStart.Infrastructure.Data.Config
             builder.Property(c => c.Id)
                 .ValueGeneratedOnAdd();
 
-            builder.Property(cb => cb.CategoryName)
+            builder.Property(cb => cb.Name)
                 .IsRequired()
                 .HasMaxLength(100);
         }
