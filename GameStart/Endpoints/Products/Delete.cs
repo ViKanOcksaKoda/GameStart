@@ -22,7 +22,7 @@ namespace GameStart.Endpoints.Products
             Summary = "Deletes a Product",
             Description = "Deletes a Product",
             OperationId = "products.Delete",
-            Tags = new[] { "ProductEndpoints" })
+            Tags = new[] { "Product Endpoints" })
         ]
         public override async Task<ActionResult<DeleteProductResponse>> HandleAsync([FromRoute] DeleteProductRequest request, CancellationToken cancellationToken)
         {

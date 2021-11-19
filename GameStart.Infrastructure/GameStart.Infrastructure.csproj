@@ -26,4 +26,8 @@
     <ProjectReference Include="..\GameStart.Core\GameStart.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
 </Project>

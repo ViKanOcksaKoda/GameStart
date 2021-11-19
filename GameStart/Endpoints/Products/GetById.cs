@@ -19,10 +19,10 @@ namespace GameStart.Endpoints.Products
 
         [HttpGet("api/products/{ProductId}")]
         [SwaggerOperation(
-            Summary = "Get a Catalog Item by Id",
-            Description = "Gets a Catalog Item by Id",
-            OperationId = "catalog-items.GetById",
-            Tags = new[] { "CatalogItemEndpoints" })
+            Summary = "Get a Product by Id",
+            Description = "Gets a Product by Id",
+            OperationId = "products.GetById",
+            Tags = new[] { "Product Endpoints" })
         ]
         public override async Task<ActionResult<GetByIdProductResponse>> HandleAsync([FromRoute] GetByIdProductRequest request, CancellationToken cancellationToken)
         {

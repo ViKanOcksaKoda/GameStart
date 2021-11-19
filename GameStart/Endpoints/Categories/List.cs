@@ -21,7 +21,7 @@ namespace GameStart.Endpoints.Categories
             _mapper = mapper;
         }
 
-        [HttpGet("api/category")]
+        [HttpGet("api/categories")]
         [SwaggerOperation(
             Summary = "List Categories",
             Description = "List Categories",

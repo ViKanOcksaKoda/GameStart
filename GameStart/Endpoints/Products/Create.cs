@@ -23,7 +23,7 @@ namespace GameStart.Endpoints.Products
             Summary = "Creates a new Product",
             Description = "Creates a new Product",
             OperationId = "products.create",
-            Tags = new[] { "ProductsEndpoints" })
+            Tags = new[] { "Product Endpoints" })
         ]
         public override async Task<ActionResult<CreateProductResponse>> HandleAsync(CreateProductRequest request, CancellationToken cancellationToken)
         {
