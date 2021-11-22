@@ -1,6 +1,9 @@
-﻿namespace GameStart.Endpoints.Categories
+﻿using Ardalis.ApiEndpoints;
+
+namespace GameStart.Endpoints.Categories
 {
     public class Delete
     {
+
     }
 }

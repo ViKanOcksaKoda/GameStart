@@ -10,8 +10,7 @@ namespace GameStart
         public MappingProfile()
         {
             CreateMap<Product, ProductDTO>();
-            CreateMap<Category, CategoryDTO>()
-                .ForMember(dto => dto.Name, options => options.MapFrom(src => src.Description));
+            CreateMap<Category, CategoryDTO>();
         }
     }
 }
