@@ -17,5 +17,11 @@ namespace GameStart.Core.Entities
             Name = name;
             Description = description;
         }
+        
+        public void UpdateCategory(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
     }
 }

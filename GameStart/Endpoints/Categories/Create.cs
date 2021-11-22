@@ -11,11 +11,11 @@ namespace GameStart.Endpoints.Categories
     .WithRequest<CreateCategoryRequest>
     .WithResponse<CreateCategoryResponse>
     {
-        private readonly IRepository<Category> _itemRepository;
+        private readonly IRepository<Category> _categoryRepository;
 
-        public Create(IRepository<Category> itemRepository)
+        public Create(IRepository<Category> categoryRepository)
         {
-            _itemRepository = itemRepository;
+            _categoryRepository = categoryRepository;
         }
 
         [HttpPost("api/categories")]
@@ -23,14 +23,14 @@ namespace GameStart.Endpoints.Categories
             Summary = "Creates a new Category",
             Description = "Creates a new Category",
             OperationId = "Category.create",
-            Tags = new[] { "CategoryEndpoints" })
+            Tags = new[] { "Category Endpoints" })
         ]
         public override async Task<ActionResult<CreateCategoryResponse>> HandleAsync(CreateCategoryRequest request, CancellationToken cancellationToken)
         {
             var response = new CreateCategoryResponse(request.CorrelationId());
 
             var categoryNameSpecification = new CategoryNameSpecification(request.Name);
-            var existingProduct = await _itemRepository.CountAsync(categoryNameSpecification, cancellationToken);
+            var existingProduct = await _categoryRepository.CountAsync(categoryNameSpecification, cancellationToken);
             if (existingProduct > 0)
             {
                 //throw new DuplicateException($"A catalogItem with name {request.Name} already exists");
@@ -38,7 +38,7 @@ namespace GameStart.Endpoints.Categories
             }
 
             var newItem = new Category(request.Name, request.Description);
-            newItem = await _itemRepository.AddAsync(newItem, cancellationToken);
+            newItem = await _categoryRepository.AddAsync(newItem, cancellationToken);
 
             var dto = new CategoryDTO
             {
