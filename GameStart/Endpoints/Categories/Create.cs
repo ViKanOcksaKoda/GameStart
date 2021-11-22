@@ -23,7 +23,7 @@ namespace GameStart.Endpoints.Categories
             Summary = "Creates a new Category",
             Description = "Creates a new Category",
             OperationId = "Category.create",
-            Tags = new[] { "CategoryEndpoints" })
+            Tags = new[] { "Category Endpoints" })
         ]
         public override async Task<ActionResult<CreateCategoryResponse>> HandleAsync(CreateCategoryRequest request, CancellationToken cancellationToken)
         {

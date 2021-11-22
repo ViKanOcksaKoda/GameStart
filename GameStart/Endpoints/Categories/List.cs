@@ -26,7 +26,7 @@ namespace GameStart.Endpoints.Categories
             Summary = "List Categories",
             Description = "List Categories",
             OperationId = "categories.List",
-            Tags = new[] { "CategoryEndpoints" })
+            Tags = new[] { "Category Endpoints" })
         ]
         public override async Task<ActionResult<ListCategoriesResponse>> HandleAsync(CancellationToken cancellationToken)
         {
