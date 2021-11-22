@@ -10,11 +10,11 @@ namespace GameStart.Endpoints.Categories
     .WithRequest<GetByIdCategoryRequest>
     .WithResponse<GetByIdCategoryResponse>
     {
-        private readonly IRepository<Category> _itemRepository;
+        private readonly IRepository<Category> _categoryRepository;
 
-        public GetById(IRepository<Category> itemRepository)
+        public GetById(IRepository<Category> categoryRepository)
         {
-            _itemRepository = itemRepository;
+            _categoryRepository = categoryRepository;
         }
         [HttpGet("api/categories/{CategoryId}")]
         [SwaggerOperation(
@@ -26,7 +26,7 @@ namespace GameStart.Endpoints.Categories
         public override async Task<ActionResult<GetByIdCategoryResponse>> HandleAsync([FromRoute] GetByIdCategoryRequest request, CancellationToken cancellationToken = default)
         {
             var response = new GetByIdCategoryResponse(request.CorrelationId());
-            var item = await _itemRepository.GetByIdAsync(request.CategoryId, cancellationToken);
+            var item = await _categoryRepository.GetByIdAsync(request.CategoryId, cancellationToken);
 
             if (item == null) return NotFound();
 

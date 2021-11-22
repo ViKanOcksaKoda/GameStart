@@ -10,11 +10,11 @@ namespace GameStart.Endpoints.Categories
         .WithRequest<DeleteCategoryRequest>
         .WithResponse<DeleteCategoryResponse>
     {
-        private readonly IRepository<Category> _itemRepository;
+        private readonly IRepository<Category> _categoryRepository;
 
-        public Delete(IRepository<Category> itemRepository)
+        public Delete(IRepository<Category> categoryRepository)
         {
-            _itemRepository = itemRepository;
+            _categoryRepository = categoryRepository;
         }
 
         [HttpDelete("api/category/{CategoryId}")]
@@ -28,10 +28,10 @@ namespace GameStart.Endpoints.Categories
         {
             var response = new DeleteCategoryResponse(request.CorrelationId());
 
-            var itemToDelete = await _itemRepository.GetByIdAsync(request.CategoryId, cancellationToken);
+            var itemToDelete = await _categoryRepository.GetByIdAsync(request.CategoryId, cancellationToken);
             if (itemToDelete is null) return NotFound();
 
-            await _itemRepository.DeleteAsync(itemToDelete, cancellationToken);
+            await _categoryRepository.DeleteAsync(itemToDelete, cancellationToken);
 
             return Ok(response);
         }
