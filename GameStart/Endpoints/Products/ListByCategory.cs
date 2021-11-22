@@ -22,12 +22,12 @@ namespace GameStart.Endpoints.Products
             _mapper = mapper;
         }
 
-        [HttpGet("api/catalog-items")]
+        [HttpGet("api/products")]
         [SwaggerOperation(
-            Summary = "List Catalog Items (paged)",
-            Description = "List Catalog Items (paged)",
-            OperationId = "catalog-items.ListPaged",
-            Tags = new[] { "CatalogItemEndpoints" })
+            Summary = "List Products by Category",
+            Description = "List Products by Category",
+            OperationId = "products.ListByCategory",
+            Tags = new[] { "Product Endpoints" })
         ]
         public override async Task<ActionResult<ListProductsByCategoryResponse>> HandleAsync([FromQuery] ListProductsByCategoryRequest request, CancellationToken cancellationToken)
         {
