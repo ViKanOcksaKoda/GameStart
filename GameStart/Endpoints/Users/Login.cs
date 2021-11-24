@@ -16,7 +16,7 @@ namespace GameStart.Endpoints.Users
         {
             _userRepository = userRepository;
         }
-        [HttpGet("api/users/login{UserName}/{Password}")]
+        [HttpGet("api/users/login/{UserName}/{Password}")]
         [SwaggerOperation(
            Summary = "Login as user",
            Description = "login with username and password",

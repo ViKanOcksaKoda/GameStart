@@ -1,6 +1,15 @@
-﻿namespace GameStart.Endpoints.ShoppingCarts
+﻿using Ardalis.ApiEndpoints;
+using Microsoft.AspNetCore.Mvc;
+
+namespace GameStart.Endpoints.ShoppingCarts
 {
-    public class Update
+    public class Update : BaseAsyncEndpoint
+        .WithRequest<UpdateShoppingCartsRequest>
+        .WithResponse<UpdateShoppingCartsResponse>
     {
+        public override Task<ActionResult<UpdateShoppingCartsResponse>> HandleAsync(UpdateShoppingCartsRequest request, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
