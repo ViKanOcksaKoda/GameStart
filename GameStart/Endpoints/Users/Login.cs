@@ -26,15 +26,27 @@ namespace GameStart.Endpoints.Users
         public override async Task<ActionResult<LoginUserResponse>> HandleAsync([FromRoute]LoginUserRequest request, CancellationToken cancellationToken = default)
         {
             var response = new LoginUserResponse();
+            int thisUserId = 0;
             var users = await _userRepository.ListAsync();
             for ( int i = 0; i < users.Count; i++)
             {
                 if(users[i].UserName == request.UserName && users[i].Password == request.Password)
                 {
                     response.LoggedIn = true;
+                    thisUserId = users[i].Id;
                 }
             }
-
+            var user = await _userRepository.GetByIdAsync(thisUserId);
+            
+            if(user != null)
+            {
+                response.UserId = user.Id;
+            }
+            else
+            {
+                throw new Exception("The username or password does not match any current user.");
+            }
+            
             return response;
         }
     }
