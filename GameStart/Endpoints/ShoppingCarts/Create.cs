@@ -7,7 +7,7 @@ namespace GameStart.Endpoints.ShoppingCarts
         .WithRequest<CreateShoppingCartsRequest>
         .WithResponse<CreateShoppingCartsResponse>
     {
-        public override Task<ActionResult<CreateShoppingCartsResponse>> HandleAsync(CreateShoppingCartsRequest request, CancellationToken cancellationToken = default)
+        public override Task<ActionResult<CreateShoppingCartsResponse>> HandleAsync(CreateShoppingCartsRequest request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
