@@ -22,7 +22,7 @@ namespace GameStart.Endpoints.Products
             _mapper = mapper;
         }
 
-        [HttpGet("api/products{CategoryId}")]
+        [HttpGet("api/products/{CategoryId}")]
         [SwaggerOperation(
             Summary = "List Products by Category",
             Description = "List Products by Category",
