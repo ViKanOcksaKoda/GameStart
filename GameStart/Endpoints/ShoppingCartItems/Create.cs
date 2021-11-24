@@ -1,15 +1,12 @@
 ﻿using Ardalis.ApiEndpoints;
+using GameStart.Core.Entities.ShoppingCartAggregate;
+using GameStart.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameStart.Endpoints.ShoppingCartItems
 {
-    public class Create : BaseAsyncEndpoint
-        .WithRequest<CreateShoppingCartItemsRequest>
-        .WithResponse<CreateShoppingCartItemsResponse>
+    public class Create
     {
-        public override Task<ActionResult<CreateShoppingCartItemsResponse>> HandleAsync(CreateShoppingCartItemsRequest request, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -3,13 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GameStart.Endpoints.ShoppingCarts
 {
-    public class Create : BaseAsyncEndpoint
-        .WithRequest<CreateShoppingCartsRequest>
-        .WithResponse<CreateShoppingCartsResponse>
+    public class Create
     {
-        public override Task<ActionResult<CreateShoppingCartsResponse>> HandleAsync(CreateShoppingCartsRequest request, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

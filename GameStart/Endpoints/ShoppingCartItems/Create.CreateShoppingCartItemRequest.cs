@@ -1,6 +1,7 @@
 ﻿namespace GameStart.Endpoints.ShoppingCartItems
 {
-    public class CreateShoppingCartItemsResponse
+    public class CreateShoppingCartItemRequest : BaseRequest
     {
+
     }
 }
