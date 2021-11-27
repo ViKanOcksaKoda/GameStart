@@ -49,6 +49,24 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
 }
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var loggerFactory = services.GetService<ILoggerFactory>();
+    try
+    {
+        var gameStartContext = services.GetRequiredService<GameStartContext>();
+        await GameStartContextSeed.SeedAsync(gameStartContext, loggerFactory);
+
+
+    }
+    catch (Exception ex)
+    {
+        var logger = loggerFactory.CreateLogger<Program>();
+        logger.LogError(ex, "An error occurred seeding the DB.");
+    }
+}
+
 app.UseHttpsRedirection();
 
 app.UseCors(builder =>
