@@ -1,4 +1,5 @@
 ﻿using Ardalis.GuardClauses;
+using GameStart.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GameStart.Core.Entities.ShoppingCartAggregate
 {
-    public class ShoppingCartItem : BaseEntity
+    public class ShoppingCartItem : BaseEntity, IAggregateRoot
     {
         public decimal UnitPrice { get; private set; }
         public int Quantity { get; private set; }

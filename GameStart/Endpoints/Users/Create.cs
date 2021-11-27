@@ -24,7 +24,7 @@ namespace GameStart.Endpoints.Users
             OperationId = "users.create",
             Tags = new[] { "User Endpoints" })
         ]
-        public override async Task<ActionResult<CreateUserResponse>> HandleAsync(CreateUserRequest request, CancellationToken cancellationToken = default)
+        public override async Task<ActionResult<CreateUserResponse>> HandleAsync(CreateUserRequest request, CancellationToken cancellationToken)
         {
             var response = new CreateUserResponse(request.CorrelationId());
 
