@@ -10,7 +10,8 @@
         {
         }
 
-        public bool LoggedIn { get; set; }
         public int UserId { get; set; }
+        public bool LoggedIn { get; set; }
+        public string Role { get; set; }
     }
 }
