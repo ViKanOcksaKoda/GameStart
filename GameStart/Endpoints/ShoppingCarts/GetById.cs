@@ -17,7 +17,7 @@ namespace GameStart.Endpoints.ShoppingCarts
         {
             _shoppingCartRepository = shoppingCartRepository;
         }
-        [HttpGet("api/shoppingcart/{UserId}/{ShoppingCartId}")]
+        [HttpGet("api/shoppingcart/{UserId}")]
         [SwaggerOperation(
             Summary = "Get a Shopping Cart by Id",
             Description = "Gets a Shopping Cart by Id",
@@ -28,14 +28,24 @@ namespace GameStart.Endpoints.ShoppingCarts
         {
             var response = new GetByIdShoppingCartsResponse(request.CorrelationId());
 
-            var cart = await _shoppingCartRepository.GetByIdAsync(request.ShoppingCartId);
 
-            if (cart == null) return NotFound();
+            var allCarts = await _shoppingCartRepository.ListAsync(cancellationToken);
 
-            response.cartItems = new ShoppingCartDTO
+            for(int i = 0; i < allCarts.Count; i++)
             {
-                UserId = request.UserId
-            };
+                if(allCarts[i].UserId == request.UserId)
+                {
+                    response.cartItems = new ShoppingCartDTO
+                    {
+                        UserId = allCarts[i].UserId,
+                        ShoppingCartId = allCarts[i].Id
+                    };
+                }
+            }
+
+            if (response.cartItems == null) return NotFound();
+
+            
 
             return response;
         }

@@ -37,7 +37,7 @@ namespace GameStart.Endpoints.Products
                 throw new Exception($"A catalogItem with name {request.Name} already exists");
             }
 
-            var newItem = new Product(request.CategoryId, request.Description, request.Name, request.Price, request.StockBalance);
+            var newItem = new Product(request.CategoryId, request.Name, request.Description, request.Price, request.StockBalance);
             newItem = await _itemRepository.AddAsync(newItem, cancellationToken);
 
             var dto = new ProductDTO
