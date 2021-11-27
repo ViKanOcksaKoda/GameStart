@@ -11,31 +11,37 @@ namespace GameStart.Infrastructure.Data
 {
     public class GameStartContextSeed
     {
-        public static async Task SeedAsync(GameStartContext catalogContext,
+        public static async Task SeedAsync(GameStartContext gameStartContext,
         ILoggerFactory loggerFactory, int retry = 0)
         {
             var retryForAvailability = retry;
             try
             {
-                if (catalogContext.Database.IsSqlServer())
+                if (gameStartContext.Database.IsSqlServer())
                 {
-                    catalogContext.Database.Migrate();
+                    gameStartContext.Database.Migrate();
                 }
-
-                if (!await catalogContext.Categories.AnyAsync())
+                if (!await gameStartContext.Users.AnyAsync())
                 {
-                    await catalogContext.Categories.AddRangeAsync(
+                    await gameStartContext.Users.AddRangeAsync(
+                        GetPreconfiguredUsers());
+
+                    await gameStartContext.SaveChangesAsync();
+                }
+                if (!await gameStartContext.Categories.AnyAsync())
+                {
+                    await gameStartContext.Categories.AddRangeAsync(
                         GetPreconfiguredCategories());
 
-                    await catalogContext.SaveChangesAsync();
+                    await gameStartContext.SaveChangesAsync();
                 }
 
-                if (!await catalogContext.Products.AnyAsync())
+                if (!await gameStartContext.Products.AnyAsync())
                 {
-                    await catalogContext.Products.AddRangeAsync(
+                    await gameStartContext.Products.AddRangeAsync(
                         GetPreconfiguredItems());
 
-                    await catalogContext.SaveChangesAsync();
+                    await gameStartContext.SaveChangesAsync();
                 }
             }
             catch (Exception ex)
@@ -45,12 +51,20 @@ namespace GameStart.Infrastructure.Data
                 retryForAvailability++;
                 var log = loggerFactory.CreateLogger<GameStartContextSeed>();
                 log.LogError(ex.Message);
-                await SeedAsync(catalogContext, loggerFactory, retryForAvailability);
+                await SeedAsync(gameStartContext, loggerFactory, retryForAvailability);
                 throw;
             }
         }
 
-        
+
+        static IEnumerable<User> GetPreconfiguredUsers()
+        {
+            return new List<User>
+            {
+                new("GuestUser", "guest123", "guest", "James", "Smith"),
+                new("AdminUser", "admin123", "admin", "Sith", "Lord"),
+            };
+        }
 
         static IEnumerable<Category> GetPreconfiguredCategories()
         {
@@ -61,7 +75,6 @@ namespace GameStart.Infrastructure.Data
                 new("Controllers", "Take Control")
             };
         }
-
         static IEnumerable<Product> GetPreconfiguredItems()
         {
             return new List<Product>
