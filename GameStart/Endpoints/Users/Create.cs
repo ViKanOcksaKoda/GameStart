@@ -1,6 +1,7 @@
 ﻿using Ardalis.ApiEndpoints;
 using GameStart.Core.Entities;
 using GameStart.Core.Interfaces;
+using GameStart.Core.Specifications;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -26,6 +27,14 @@ namespace GameStart.Endpoints.Users
         public override async Task<ActionResult<CreateUserResponse>> HandleAsync(CreateUserRequest request, CancellationToken cancellationToken = default)
         {
             var response = new CreateUserResponse(request.CorrelationId());
+
+            var productNameSpecification = new UserNameSpecification(request.UserName);
+            var existingUser = await _userRepository.CountAsync(productNameSpecification, cancellationToken);
+            if (existingUser > 0)
+            {
+                //throw new DuplicateException($"A catalogItem with name {request.Name} already exists");
+                throw new Exception($"A user with Username: {request.UserName}. Already exists");
+            }
 
             var newUser = new User(request.UserName, request.Password, request.Role, request.FirstName, request.LastName);
             newUser = await _userRepository.AddAsync(newUser, cancellationToken);

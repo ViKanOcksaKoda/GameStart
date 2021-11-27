@@ -34,7 +34,7 @@ namespace GameStart.Endpoints.Products
             if (existingProduct > 0)
             {
                 //throw new DuplicateException($"A catalogItem with name {request.Name} already exists");
-                throw new Exception($"A catalogItem with name {request.Name} already exists");
+                throw new Exception($"A product with name {request.Name} already exists");
             }
 
             var newItem = new Product(request.CategoryId, request.Description, request.Name, request.Price, request.StockBalance);
