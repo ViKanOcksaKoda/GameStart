@@ -9,9 +9,9 @@ namespace GameStart.Core.Entities.ShoppingCartAggregate
 {
     public class ShoppingCartItem : BaseEntity, IAggregateRoot
     {
-        public decimal UnitPrice { get; set; }
-        public int Quantity { get; set; }
-        public int ProductId { get; set; }
+        public decimal UnitPrice { get; private set; }
+        public int Quantity { get; private set; }
+        public int ProductId { get; private set; }
         public int ShoppingCartId { get; set; }
 
         public ShoppingCartItem(int productId, decimal unitPrice, int quantity)
