@@ -41,6 +41,7 @@ namespace GameStart.Endpoints.Users
             if(user != null)
             {
                 response.UserId = user.Id;
+                response.Role = user.Role;
             }
             else
             {
