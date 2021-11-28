@@ -1,4 +1,5 @@
-﻿using GameStart.Core.Interfaces;
+﻿using Ardalis.GuardClauses;
+using GameStart.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,11 +24,15 @@ namespace GameStart.Core.Entities.ShoppingCartAggregate
 
         public void AddQuantity(int quantity)
         {
+            Guard.Against.OutOfRange(quantity, nameof(quantity), 0, int.MaxValue);
+
             Quantity += quantity;
         }
 
         public void SetQuantity(int quantity)
         {
+            Guard.Against.OutOfRange(quantity, nameof(quantity), 0, int.MaxValue);
+
             Quantity = quantity;
         }
     }

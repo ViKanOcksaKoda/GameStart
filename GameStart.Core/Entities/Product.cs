@@ -1,4 +1,5 @@
-﻿using GameStart.Core.Interfaces;
+﻿using Ardalis.GuardClauses;
+using GameStart.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,10 +33,16 @@ namespace GameStart.Core.Entities
 
         public void UpdateDetails(string name, string description, decimal price, int stockBalance)
         {
+            Guard.Against.NullOrEmpty(name, nameof(name));
+            Guard.Against.NullOrEmpty(description, nameof(description));
+            Guard.Against.NegativeOrZero(price, nameof(price));
+            Guard.Against.NegativeOrZero(stockBalance, nameof(stockBalance));
+
+
             Name = name;
             Description = description;
             Price = price;
-            StockBalance=stockBalance;
+            StockBalance = stockBalance;
         }
 
         public void UpdateCategory(int categoryId)
