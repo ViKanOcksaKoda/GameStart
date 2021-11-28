@@ -11,6 +11,5 @@
         {
         }
         public ShoppingCartDTO cartItems { get; set; }
-        public string ProductName { get; set; }
     }
 }

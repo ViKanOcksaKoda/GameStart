@@ -45,6 +45,7 @@ namespace GameStart.Endpoints.ShoppingCarts
                     };
                 }
             }
+
             for(int i = 0; i < allItems.Count; i++)
             {
                 if(allItems[i].ShoppingCartId == cart.ShoppingCartId)
