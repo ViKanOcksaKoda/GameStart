@@ -30,21 +30,27 @@ namespace GameStart.Endpoints.ShoppingCarts
             var items = await _shoppingCartItemRepository.ListAsync(cancellationToken);
             var carts = await _shoppingCartRepository.ListAsync(cancellationToken);
             int userCart = 0;
+            List<ShoppingCartItem> itemsToBeDeleted = new List<ShoppingCartItem>();
             
-            for(int i = 0; i <= items.Count; i++)
+            for(int i = 1; i < carts.Count; i++)
             {
                 if(carts[i].UserId == request.UserId)
                 {
                     userCart = carts[i].Id;
+                    for(int u = 1; u < items.Count; u++)
+                    {
+                        if(items[i].ShoppingCartId == userCart)
+                        {
+                            itemsToBeDeleted.Add(items[i]);
+                        }
+                    }
                 }
             }
-            for(int i = 0;i < items.Count; i++)
+            foreach (var item in itemsToBeDeleted)
             {
-                if(items[i].ShoppingCartId == userCart)
-                {
-                    await _shoppingCartItemRepository.DeleteAsync(items[i]);
-                }
-            }
+                await _shoppingCartItemRepository.DeleteAsync(item);
+            };
+
 
             return Ok(response);
         }
