@@ -1,4 +1,5 @@
-﻿using GameStart.Core.Entities.ShoppingCartAggregate;
+﻿using Ardalis.GuardClauses;
+using GameStart.Core.Entities.ShoppingCartAggregate;
 using GameStart.Core.Interfaces;
 using GameStart.Core.Specifications;
 using System;
@@ -47,8 +48,11 @@ namespace GameStart.Core.Services
 
         public async Task<ShoppingCart> SetQuantities(int shoppingCartId, Dictionary<string, int> quantities)
         {
+            Guard.Against.Null(quantities, nameof(quantities));
+
             var shoppingCartSpec = new ShoppingCartWithItemsSpecification(shoppingCartId);
             var shoppingCart = await _shoppingCartRepository.GetBySpecAsync(shoppingCartSpec);
+            
 
             foreach (var item in shoppingCart.Items)
             {

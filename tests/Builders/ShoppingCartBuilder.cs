@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTests.GameStartCore.Entities.ProductTests
+namespace UnitTests.Builders
 {
-    internal class UpdateCategory
+    internal class ShoppingCartBuilder
     {
     }
 }

@@ -47,6 +47,8 @@ namespace GameStart.Core.Entities
 
         public void UpdateCategory(int categoryId)
         {
+            Guard.Against.NegativeOrZero(categoryId, nameof(categoryId));
+
             CategoryId = categoryId;
         }
     }
