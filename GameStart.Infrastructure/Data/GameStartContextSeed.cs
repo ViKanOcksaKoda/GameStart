@@ -44,6 +44,13 @@ namespace GameStart.Infrastructure.Data
 
                     await gameStartContext.SaveChangesAsync();
                 }
+                if(!await gameStartContext.ShoppingCarts.AnyAsync())
+                {
+                    await gameStartContext.ShoppingCarts.AddRangeAsync(
+                        GetPreconfiguredCart());
+                    
+                    await gameStartContext.SaveChangesAsync();
+                }
             }
             catch (Exception ex)
             {
