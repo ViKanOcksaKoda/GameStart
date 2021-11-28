@@ -1,4 +1,5 @@
 ﻿using GameStart.Core.Entities;
+using GameStart.Core.Entities.ShoppingCartAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -94,6 +95,14 @@ namespace GameStart.Infrastructure.Data
                 new(3, "Xbox series X Controller", "It's all about speed", 200, 100),
                 new(3, "Nintendo Switch Joy-con", "Two movable controllers", 149, 100),
                 new(3, "Nintento Switch Pro Controller", "Pro Nintendo movement", 179, 100)
+            };
+        }
+        static IEnumerable<ShoppingCart> GetPreconfiguredCart()
+        {
+            return new List<ShoppingCart>
+            {
+                new("1"),
+                new("2")
             };
         }
     }
