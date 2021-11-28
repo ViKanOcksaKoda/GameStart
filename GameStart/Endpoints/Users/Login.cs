@@ -27,7 +27,6 @@ namespace GameStart.Endpoints.Users
         {
             var response = new LoginUserResponse();
             int thisUserId = 0;
-            string userRole = null;
             var users = await _userRepository.ListAsync();
             for ( int i = 0; i < users.Count; i++)
             {
@@ -35,7 +34,6 @@ namespace GameStart.Endpoints.Users
                 {
                     response.LoggedIn = true;
                     thisUserId = users[i].Id;
-                    userRole = users[i].Role;
                 }
             }
             var user = await _userRepository.GetByIdAsync(thisUserId);
@@ -43,7 +41,7 @@ namespace GameStart.Endpoints.Users
             if(user != null)
             {
                 response.UserId = user.Id;
-                response.Role = userRole;
+                response.Role = user.Role;
             }
             else
             {
