@@ -1,10 +1,10 @@
 using Autofac.Extensions.DependencyInjection;
 using GameStart;
+using GameStart.Core.Interfaces;
 using GameStart.Infrastructure.Data;
+using GameStart.Infrastructure.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using GameStart.Core.Interfaces;
-using GameStart.Infrastructure.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 

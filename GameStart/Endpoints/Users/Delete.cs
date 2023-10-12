@@ -23,7 +23,7 @@ namespace GameStart.Endpoints.Users
             OperationId = "users.delete",
             Tags = new[] { "User Endpoints" })
         ]
-        public override async Task<ActionResult<DeleteUserResponse>> HandleAsync([FromRoute]DeleteUserRequest request, CancellationToken cancellationToken = default)
+        public override async Task<ActionResult<DeleteUserResponse>> HandleAsync([FromRoute] DeleteUserRequest request, CancellationToken cancellationToken = default)
         {
             var response = new DeleteUserResponse(request.CorrelationId());
 

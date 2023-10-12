@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
+#nullable disable
 
 namespace GameStart.Infrastructure.Migrations
 {

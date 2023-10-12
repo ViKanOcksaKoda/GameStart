@@ -1,6 +1,4 @@
-﻿using GameStart.Core.Entities;
-
-namespace GameStart.Endpoints.Products
+﻿namespace GameStart.Endpoints.Products
 {
     public class ProductDTO
     {

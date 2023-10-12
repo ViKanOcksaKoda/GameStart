@@ -33,9 +33,9 @@ namespace GameStart.Endpoints.ShoppingCarts
             var cartItems = new List<ShoppingCartItem>();
             var allCarts = await _shoppingCartRepository.ListAsync(cancellationToken);
 
-            for(int i = 0; i < allCarts.Count; i++)
+            for (int i = 0; i < allCarts.Count; i++)
             {
-                if(allCarts[i].UserId == request.UserId)
+                if (allCarts[i].UserId == request.UserId)
                 {
                     cart = new ShoppingCartDTO
                     {
@@ -44,9 +44,9 @@ namespace GameStart.Endpoints.ShoppingCarts
                     };
                 }
             }
-            for(int i = 0; i < allItems.Count; i++)
+            for (int i = 0; i < allItems.Count; i++)
             {
-                if(allItems[i].ShoppingCartId == cart.ShoppingCartId)
+                if (allItems[i].ShoppingCartId == cart.ShoppingCartId)
                 {
                     cartItems.Add(allItems[i]);
                 }
@@ -56,7 +56,7 @@ namespace GameStart.Endpoints.ShoppingCarts
             {
                 UserId = cart.UserId,
                 ShoppingCartId = cart.ShoppingCartId,
-                shoppingCartItem = cartItems
+                ShoppingCartItem = cartItems
             };
 
             if (response.cartItems == null) return NotFound();

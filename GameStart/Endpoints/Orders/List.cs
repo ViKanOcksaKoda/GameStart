@@ -1,7 +1,6 @@
 ﻿using Ardalis.ApiEndpoints;
 using AutoMapper;
 using GameStart.Core.Entities;
-using GameStart.Core.Entities.OrderAggregate;
 using GameStart.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -33,7 +32,7 @@ namespace GameStart.Endpoints.Orders
             var orders = await _orderRepository.ListAsync(cancellationToken);
 
             response.Orders.AddRange(orders.Select(_mapper.Map<OrderDTO>));
-            
+
             return Ok(response);
         }
     }

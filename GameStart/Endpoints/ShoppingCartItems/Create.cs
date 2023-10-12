@@ -1,5 +1,4 @@
 ﻿using Ardalis.ApiEndpoints;
-using GameStart.Core.Entities;
 using GameStart.Core.Entities.ShoppingCartAggregate;
 using GameStart.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -35,7 +34,7 @@ namespace GameStart.Endpoints.ShoppingCartItems
 
             for (int i = 0; i < shoppingCarts.Count; i++)
             {
-                if(shoppingCarts[i].UserId == request.UserId.ToString())
+                if (shoppingCarts[i].UserId == request.UserId.ToString())
                 {
                     shoppingCartId = shoppingCarts[i].Id;
                     item.ShoppingCartId = shoppingCartId;
@@ -51,7 +50,7 @@ namespace GameStart.Endpoints.ShoppingCartItems
                 CartId = shoppingCartId,
             };
             response.cartItem = dto;
-            
+
             return response;
         }
     }
