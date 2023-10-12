@@ -8,7 +8,7 @@ namespace GameStart.Core.Entities.ShoppingCartAggregate
         public decimal UnitPrice { get; private set; }
         public int Quantity { get; private set; }
         public int ProductId { get; private set; }
-        public int ShoppingCartId { get; private set; }
+        public int ShoppingCartId { get; set; }
 
         public ShoppingCartItem(int productId, decimal unitPrice, int quantity)
         {

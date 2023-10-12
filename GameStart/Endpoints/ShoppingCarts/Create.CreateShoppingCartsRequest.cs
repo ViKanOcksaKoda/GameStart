@@ -6,7 +6,6 @@ namespace GameStart.Endpoints.ShoppingCarts
     public class CreateShoppingCartsRequest : BaseRequest
     {
         public string UserId { get; set; }
-        public int ProductId { get; set; }
         public List<ShoppingCartItem> ShoppingCartItem { get; set; }
     }
 }
