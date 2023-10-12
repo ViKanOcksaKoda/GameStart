@@ -1,10 +1,5 @@
-﻿using GameStart.Core.Interfaces;
-using Ardalis.Specification.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ardalis.Specification.EntityFrameworkCore;
+using GameStart.Core.Interfaces;
 
 namespace GameStart.Infrastructure.Data
 {

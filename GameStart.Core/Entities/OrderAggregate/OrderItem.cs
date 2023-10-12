@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameStart.Core.Entities.OrderAggregate
+﻿namespace GameStart.Core.Entities.OrderAggregate
 {
     public class OrderItem : BaseEntity
     {

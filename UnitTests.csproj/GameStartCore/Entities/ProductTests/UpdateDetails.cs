@@ -1,9 +1,5 @@
 ﻿using GameStart.Core.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace UnitTests.GameStartCore.Entities.ProductTests
@@ -19,7 +15,7 @@ namespace UnitTests.GameStartCore.Entities.ProductTests
 
         public UpdateDetails()
         {
-            _testItem = new Product(_validCategoryId, _validName, _validDescription,  _validPrice, _validStockBalance);
+            _testItem = new Product(_validCategoryId, _validName, _validDescription, _validPrice, _validStockBalance);
         }
 
         [Fact]

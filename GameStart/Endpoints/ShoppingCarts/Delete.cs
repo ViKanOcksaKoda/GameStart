@@ -1,7 +1,4 @@
-﻿using Ardalis.ApiEndpoints;
-using Microsoft.AspNetCore.Mvc;
-
-namespace GameStart.Endpoints.ShoppingCarts
+﻿namespace GameStart.Endpoints.ShoppingCarts
 {
     public class Delete
     {

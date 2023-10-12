@@ -1,10 +1,6 @@
 ﻿using GameStart.Core.Entities;
 using GameStart.Core.Entities.OrderAggregate;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnitTests.Builders
 {
@@ -32,7 +28,7 @@ namespace UnitTests.Builders
         {
             var orderItem = new OrderItem(TestUnitPrice, TestUnits);
             var itemList = new List<OrderItem>() { orderItem };
-            _order = new Order(TestUserId, TestAddress,  itemList);
+            _order = new Order(TestUserId, TestAddress, itemList);
             return _order;
         }
 

@@ -1,11 +1,8 @@
 ﻿using Ardalis.ApiEndpoints;
-using GameStart.Core.Entities;
 using GameStart.Core.Entities.ShoppingCartAggregate;
 using GameStart.Core.Interfaces;
-using GameStart.Core.Specifications;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using System.Collections.Generic;
 
 namespace GameStart.Endpoints.ShoppingCarts
 {
@@ -30,11 +27,11 @@ namespace GameStart.Endpoints.ShoppingCarts
             var response = new CreateShoppingCartsResponse(request.CorrelationId());
             var newCart = new ShoppingCart(request.UserId.ToString());
 
-            newCart = await _shoppingCartRepository.AddAsync(newCart, cancellationToken);
+            await _shoppingCartRepository.AddAsync(newCart, cancellationToken);
 
             var dto = new ShoppingCartDTO
             {
-                shoppingCartItem = request.ShoppingCartItem,
+                ShoppingCartItem = request.ShoppingCartItem,
                 UserId = request.UserId,
             };
             response.cartItems = dto;

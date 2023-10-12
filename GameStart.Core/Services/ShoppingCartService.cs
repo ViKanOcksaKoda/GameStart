@@ -2,11 +2,6 @@
 using GameStart.Core.Entities.ShoppingCartAggregate;
 using GameStart.Core.Interfaces;
 using GameStart.Core.Specifications;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameStart.Core.Services
 {
@@ -52,7 +47,6 @@ namespace GameStart.Core.Services
 
             var shoppingCartSpec = new ShoppingCartWithItemsSpecification(shoppingCartId);
             var shoppingCart = await _shoppingCartRepository.GetBySpecAsync(shoppingCartSpec);
-            
 
             foreach (var item in shoppingCart.Items)
             {
@@ -71,19 +65,25 @@ namespace GameStart.Core.Services
         public async Task TransferShoppingCartAsync(string anonymousId, string userName)
         {
             var anonymousShoppingCartSpec = new ShoppingCartWithItemsSpecification(anonymousId);
+           
             var anonymousShoppingCart = await _shoppingCartRepository.GetBySpecAsync(anonymousShoppingCartSpec);
+            
             if (anonymousShoppingCart == null) return;
+            
             var userShoppingCartSpec = new ShoppingCartWithItemsSpecification(userName);
             var userShoppingCart = await _shoppingCartRepository.GetBySpecAsync(userShoppingCartSpec);
+            
             if (userShoppingCart == null)
             {
                 userShoppingCart = new ShoppingCart(userName);
                 await _shoppingCartRepository.AddAsync(userShoppingCart);
             }
+
             foreach (var item in anonymousShoppingCart.Items)
             {
                 userShoppingCart.AddItem(item.ProductId, item.UnitPrice, item.Quantity);
             }
+
             await _shoppingCartRepository.UpdateAsync(userShoppingCart);
             await _shoppingCartRepository.DeleteAsync(anonymousShoppingCart);
         }

@@ -2,11 +2,6 @@
 using GameStart.Core.Entities.ShoppingCartAggregate;
 using GameStart.Core.Interfaces;
 using GameStart.Core.Specifications;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameStart.Core.Services
 {

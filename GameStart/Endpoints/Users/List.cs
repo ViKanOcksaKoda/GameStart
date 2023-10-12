@@ -8,7 +8,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace GameStart.Endpoints.Users
 {
     public class List : BaseAsyncEndpoint
-     .WithoutRequest
+    .WithoutRequest
     .WithResponse<ListUsersResponse>
     {
         private readonly IRepository<User> _userRepository;
@@ -25,8 +25,9 @@ namespace GameStart.Endpoints.Users
             Summary = "List Users",
             Description = "List Users",
             OperationId = "users.List",
-            Tags = new[] { "User Endpoints" })
-        ]
+            Tags = new[] { "User Endpoints" }
+        )]
+
         public override async Task<ActionResult<ListUsersResponse>> HandleAsync(CancellationToken cancellationToken)
         {
             var response = new ListUsersResponse();

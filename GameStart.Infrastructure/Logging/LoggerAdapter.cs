@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameStart.Core.Interfaces;
+﻿using GameStart.Core.Interfaces;
 using Microsoft.Extensions.Logging;
 
 namespace GameStart.Infrastructure.Logging
